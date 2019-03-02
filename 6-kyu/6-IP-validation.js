@@ -14,7 +14,7 @@ invalid inputs:
 
 function isValidIP(str) {
     //split string on period
-    const octet = string.split('.');
+    const octets = string.split('.');
     // if length is not 4
     if (octets.length !== 4) {
         // return false
@@ -24,9 +24,34 @@ function isValidIP(str) {
     // else, iterate over octets
     for (let i=0; i < octets.length; i++) {
         const value = octets[i];
+        // if current value is not between 0 and 255
+        if (!value.match(/^\d+$/)) {
+            // return false
+            return false;
+        } else if (value.length > 1 && value[0]=== '0') {
+            return false;
+        } else if (value < 0 || value > 255) {
+            return false;
+        }
     }
-    // if current value is not between 0 and 255
-    // return false
-
     return true;
+  }
+
+function isValidIP(str) {
+    const octets = str.split('.');
+
+    if (octets.length !== 4) {
+        return false;
+    }
+
+    return octets.every((value) => {
+        if (!value.match(/^\d+$/)) {
+          return false;
+        } else if (value < 0 || value > 255) {
+           return false;
+        } else if (value.length > 1 && value[0] === '0') {
+          return false;
+        }
+          return true;
+    });
   }
