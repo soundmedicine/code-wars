@@ -20,3 +20,5 @@ function whoIsPaying(name){
 function whoIsPaying(name){
     return (name.length>2)?([name, name.substr(0,2)]):[name];
   }
+
+/* substring will return from the starting index you specify to BEFORE the end index you specify. */
