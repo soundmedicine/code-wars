@@ -14,3 +14,9 @@ function whoIsPaying(name){
         }
     return nameArr;
 }
+
+// Best practice
+
+function whoIsPaying(name){
+    return (name.length>2)?([name, name.substr(0,2)]):[name];
+  }
