@@ -9,11 +9,27 @@ array_diff([1,2,2,2,3],[2]) == [1,3]
 */
 
 function array_diff(a, b) {
-  let difference = [];
-  for (i=0; i<a.length; i++) {
-    if (a[i] == b[0]) {
-    difference.push(a[i])
+  if (a !== []) {
+    for (i=0; i<a.length; i++) {
+      for (j=0; j<b.length; j++) {
+        if (a[i] == b[j]) {
+          a.shift(a[i]);
+        }
+      }
     }
-    return difference;
+  }
+  return a;
+}
+
+
+function array_diff(a,b) {
+  return a.filter((current !== b[0]), [])
+}
+
+function array_diff(a,b) {
+  for (i=0; i<a.length; i++) {
+    for (j=0; j<b.length; j++) {
+      a[i] !== b[j] ? difference.push(a[i]) : a[i] = ''
+    }
   }
 }
