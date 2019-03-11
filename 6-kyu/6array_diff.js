@@ -28,6 +28,10 @@ function array_diff(a, b) {
   return a.filter(function(x) { return b.indexOf(x) == -1; });
 }
 
+function array_diff(a, b) {
+  return a.filter((x) => b.indexOf(x) == -1)
+}
+
 // function array_diff(a, b) {
 //   if (a !== []) {
 //     for (i=0; i<a.length; i++) {
