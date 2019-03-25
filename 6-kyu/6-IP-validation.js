@@ -61,3 +61,7 @@ function isValidIP(str) {
   function isValidIP(str) {
     return /^(([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])(\.(?!$)|$)){4}$/.test(str);
   }
+
+// or even better, 'net' is a node module, so in a node.js environment, you can require 'net'
+const net = require('net');
+const isValidIP = (s) => net.isIP(s);
